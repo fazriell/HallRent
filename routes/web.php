@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +40,7 @@ Route::post('/pembayaran/batal', function () {
 Route::get('/pembayaran-batal', function () {
     return view('pembayaran-batal');
 })->name('pembayaran.batal.konfirmasi');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
