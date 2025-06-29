@@ -26,3 +26,16 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/pembayaran', function () {
+    return view('pembayaran');
+})->name('pembayaran');
+
+Route::post('/pembayaran/batal', function () {
+    // Logika pembatalan pembayaran, redirect ke halaman konfirmasi atau status
+    return redirect()->route('pembayaran.batal.konfirmasi');
+})->name('pembayaran.batal');
+
+Route::get('/pembayaran-batal', function () {
+    return view('pembayaran-batal');
+})->name('pembayaran.batal.konfirmasi');
